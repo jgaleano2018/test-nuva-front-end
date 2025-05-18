@@ -2,24 +2,23 @@ import http from "../http-common-tasks";
 
 class TaskDataService {
   getAll() {
-    return http.get("/task");
+    return http.get("/use-firebase/tasks");
   }
 
   get(id) {
-    console.log("This is a test - next reprocess this activity...."+id);
-    return http.get(`/task/${id}`);
+    return http.get(`/use-firebase/tasks/${id}`);
   }
 
   create(data) {
-    return http.post("/task", data);
+    return http.post("/use-firebase/tasks", data);
   }
 
   update(id, data) {
-    return http.put(`/task/${id}`, data);
+    return http.put(`/use-firebase/tasks/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/task/${id}`);
+    return http.delete(`/use-firebase/tasks/${id}`);
   }
 
 }

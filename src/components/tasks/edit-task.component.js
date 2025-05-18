@@ -14,7 +14,7 @@ export default class UpdateTask extends Component {
       name: "",
       title: "",
       description: "",
-      status: [{"id": "1", "Name": "pendiente"}, {"id": "2", "Name": "completada"}],
+      status: [{"id": "1", "name": "pendiente"}, {"id": "2", "name": "completada"}],
       submitted: false,
       currentStatus: null,
       currentIndex: -1,
@@ -52,7 +52,7 @@ export default class UpdateTask extends Component {
         name: this.state.name,
         title: this.state.title,
         description: this.state.description,
-        status: this.status.currentIndex
+        status: this.status.currentStatus.name
       }
     )
       .then(response => {

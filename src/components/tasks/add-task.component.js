@@ -19,7 +19,7 @@ export default class AddTask extends Component {
       name: "",
       title: "",
       description: "",
-      status: [{"id": "1", "Name": "pendiente"}, {"id": "2", "Name": "completada"}],
+      status: [{"id": "1", "name": "pendiente"}, {"id": "2", "name": "completada"}],
       submitted: false,
       currentStatus: null,
       currentIndex: -1,
@@ -49,7 +49,7 @@ export default class AddTask extends Component {
       name: this.state.name,
       title: this.state.title,
       description: this.state.description,
-      status: this.status.currentStatus
+      status: this.status.currentStatus.name
     };
 
     TaskDataService.create(data)
@@ -93,7 +93,7 @@ export default class AddTask extends Component {
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newUser}>
+            <button className="btn btn-success" onClick={this.newTask}>
               Add
             </button>
           </div>

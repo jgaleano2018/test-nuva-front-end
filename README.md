@@ -1,40 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Documento Entrega 
 
-## Getting Started
+La solución para crear la aplicación del Front End se desarrollo con los principios SOLID, Clean Arqhitecture, Clean Code, Design Patterns y se utilizaron los lenguajes de programación y tecnologías correspondientes en el apartadoo de **Technology**:
 
-First, run the development server:
+# Technology
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  - React JS
+  - Next JS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Install Depedendecies
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+  - npx create-next-app@latest
+  - npm install next react react-dom
+  - npm run dev
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# Paths Executable
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+  - GET http://locahost:8081/components/task/task
+  - POST http://locahost:8081/components/task/add
+  - UDPATE http://locahost:8081/components/task/update/:id
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Decisiones Técnicas
 
-## Learn More
+Para el desarrollo de la solución en la parte del servicio se decidio utilizar la base de datos Firebase Database (RealTime Database) por las sigueientes razones:
 
-To learn more about Next.js, take a look at the following resources:
+- Es una base de datos que trabaja en onCloude o en la Nuve.
+- El servicio tiene disponibilidad aunque el usuario no tenga buena conexión o pierda la conexión.
+- Se pueden manejar multiples sesiones del lado del cliente al acceder a la aplicación web desde Google Chrome.
+- Firebase Database es compatible con Python y React JS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+En la parte del front se trabajo con React JS ya que se pueda trabajar en una arquitectura por modulos, componentes y se peude aplicar beunas practicas de desarrollo en la app construida de gestión de tareas.

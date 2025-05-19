@@ -23,7 +23,9 @@ export default class Task extends Component {
         this.setState({
             tasks: response.data.result
         });
-        console.log(response.data.result);
+        //console.log(response.data.result);
+
+        localStorage.setItem('totalTask', response.data.result.length); 
     })
     .catch(e => {
         console.log(e);
@@ -33,7 +35,7 @@ export default class Task extends Component {
   handleEnableTask = (event) => {
     const taskId = event.target.value;
     console.log("TASK ID::::: " + taskId);
-    localStorage.setItem('task', JSON.stringify(taskId));  
+    localStorage.setItem('task', JSON.stringify(taskId));   
   }
 
   render() {  

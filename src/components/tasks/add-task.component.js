@@ -9,7 +9,6 @@ export default class AddTask extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);    
     this.saveTask = this.saveTask.bind(this);
     this.newTask = this.newTask.bind(this);
-    //this.retrieveStatus = this.retrieveStatus.bind(this);
     //this.refreshList = this.refreshList.bind(this);
     this.setActiveStatus = this.setActiveStatus.bind(this);
 
@@ -22,7 +21,15 @@ export default class AddTask extends Component {
       submitted: false,
       currentStatus: null,
       currentIndex: -1,
+      totalTask: 0
     };
+  }
+
+  componentDidMount() {
+    let totalTask = JSON.parse(localStorage.getItem('totalTask'));    
+    this.setState({
+      totalTask: totalTask
+    });
   }
 
   onChangeName(e) {
@@ -45,10 +52,11 @@ export default class AddTask extends Component {
 
   saveTask() {
     var data = {
+      id: this.state.totalTask + 1,
       name: this.state.name,
       title: this.state.title,
       description: this.state.description,
-      status: this.status.currentStatus.name
+      status: this.state.currentStatus.name
     };
 
     TaskDataService.create(data)
@@ -70,7 +78,7 @@ export default class AddTask extends Component {
 
   newTask() {
     this.setState({
-      id: null,
+      id: 0,
       name: "",
       title: "",
       description: "",
@@ -143,7 +151,7 @@ export default class AddTask extends Component {
                         <li
                         className={
                             "list-group-item " +
-                            (index === this.state.currentIndex ? "pendiente" : "completada")
+                            (index === this.state.currentIndex ? "active" : "")
                         }
                         onClick={() => this.setActiveStatus(status, index)}
                         key={index}

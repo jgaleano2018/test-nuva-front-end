@@ -52,7 +52,7 @@ export default class UpdateTask extends Component {
         name: this.state.name,
         title: this.state.title,
         description: this.state.description,
-        status: this.status.currentStatus.name
+        status: this.state.currentStatus.name
       }
     )
       .then(response => {
@@ -79,18 +79,35 @@ export default class UpdateTask extends Component {
   }
 
   retrieveTask(taskId) {
-      TaskDataService.get(taskId)
-      .then(response => {
-          this.state = {
-            id: response.data[0].id,
-            name: response.data[0].name,
-            title: response.data[0].title,
-            description: response[0].description
-          };
-      })
-      .catch(e => {
-          console.log(e);
-      });
+    
+      TaskDataService.getAll()
+          .then(response => {
+
+            let subConsult = null;
+
+            for (let idx=0; idx<response.data.result.length; idx++) {
+
+              if (response.data.result[idx].id == taskId) {
+
+                subConsult = response.data.result[idx];
+
+              }
+
+            }
+
+            this.state = {
+              id: subConsult.id,
+              name: subConsult.name,
+              title: subConsult.title,
+              description: subConsult.description,
+              status: subConsult.status
+            };
+            
+          })
+          .catch(e => {
+              console.log(e);
+          });
+
   }
 
   setActiveStatus(status, index) {
@@ -160,7 +177,7 @@ export default class UpdateTask extends Component {
                         <li
                         className={
                             "list-group-item " +
-                            (index === this.state.currentIndex ? "pendiente" : "completada")
+                            (index === this.state.currentIndex ? "active" : "")
                         }
                         onClick={() => this.setActiveStatus(status, index)}
                         key={index}

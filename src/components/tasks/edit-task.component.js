@@ -71,7 +71,7 @@ export default class UpdateTask extends Component {
     TaskDataService.delete(JSON.parse(localStorage.getItem('task')))
       .then(response => {
         console.log(response.data);
-        this.props.router.navigate('/task');
+        this.props.router.navigate('/tasks');
       })
       .catch(e => {
         console.log(e);

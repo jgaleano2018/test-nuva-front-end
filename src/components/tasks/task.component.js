@@ -21,9 +21,9 @@ export default class Task extends Component {
     TaskDataService.getAll()
     .then(response => {
         this.setState({
-            tasks: response.data
+            tasks: response.data.result
         });
-        console.log(response.data);
+        console.log(response.data.result);
     })
     .catch(e => {
         console.log(e);
@@ -38,9 +38,9 @@ export default class Task extends Component {
 
   render() {  
     return (
-      
+
       <div>        
-        <NavLink exact="true" className="nav-link me-5" to={"/components/task/add/"} style={{color: 'blue'}}>Add New Task
+        <NavLink exact="true" className="nav-link me-5" to={"/components/tasks/add/"} style={{color: 'blue'}}>Add New Task
         </NavLink>
 
         <h1>Tasks</h1>
@@ -73,7 +73,7 @@ export default class Task extends Component {
                       />
                     </td>
                     <td>
-                        <NavLink exact="true" className="nav-link me-5" to={"/components/task/update/" + item.id} style={{color: 'blue'}}>Edit
+                        <NavLink exact="true" className="nav-link me-5" to={"/components/tasks/update/" + item.id} style={{color: 'blue'}}>Edit
                         </NavLink>
                     </td>
                     <td>{item.id}</td>

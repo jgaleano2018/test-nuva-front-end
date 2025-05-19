@@ -1,4 +1,4 @@
-import http from "../http-common-tasks";
+import http from "../http-common";
 
 class TaskDataService {
   getAll() {

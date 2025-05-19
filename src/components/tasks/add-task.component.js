@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TaskDataService from "../../services/task.service";
-import { title } from "process";
 
 export default class AddTask extends Component {
   constructor(props) {
@@ -10,8 +9,8 @@ export default class AddTask extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);    
     this.saveTask = this.saveTask.bind(this);
     this.newTask = this.newTask.bind(this);
-    this.retrieveStatus = this.retrieveStatus.bind(this);
-    this.refreshList = this.refreshList.bind(this);
+    //this.retrieveStatus = this.retrieveStatus.bind(this);
+    //this.refreshList = this.refreshList.bind(this);
     this.setActiveStatus = this.setActiveStatus.bind(this);
 
     this.state = {
@@ -79,7 +78,7 @@ export default class AddTask extends Component {
     });
   }
 
-   setActiveRol(status, index) {
+   setActiveStatus (status, index) {
     this.setState({
       currentStatus: status,
       currentIndex: index
